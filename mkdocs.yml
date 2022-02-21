@@ -3,7 +3,7 @@ site_url: https://webview.dev/
 site_description: WebView Docs
 site_author: WebView Maintainers
 
-repo_url: https://github.com/petabyt/webview-docs/
+repo_url: https://github.com/webview/docs
 edit_uri: ""
 
 theme:
