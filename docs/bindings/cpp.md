@@ -1,3 +1,17 @@
+# Build Instructions
+
+**Linux**
+```$ c++ main.cc `pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.0` -o webview-example```
+
+**MacOS**
+`$ c++ main.cc -std=c++11 -framework WebKit -o webview-example`
+
+**Windows (x64)**
+`$ script/build.bat`
+- The webview.exe will be in the build directory
+
+# API Reference
+
 ### webview::webview
 ```
 webview(bool debug = false, void *wnd = nullptr)
