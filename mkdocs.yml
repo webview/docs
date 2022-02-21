@@ -1,0 +1,27 @@
+site_name: Webview
+site_url: https://webview.dev/
+site_description: WebView Docs
+site_author: WebView Maintainers
+
+repo_url: https://github.com/petabyt/webview-docs/
+edit_uri: ""
+
+theme:
+    name: readthedocs
+    locale: en
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - django
+
+nav:
+    - Bindings:
+        - C++: bindings/cpp.md
+        - C: bindings/c.md
+        - Go: bindings/go.md
+        - Rust: bindings/rust.md
+        - Nim: bindings/nim.md
+        - Java: bindings/java.md
+    - About:
+        - Contributing: about/contributing.md
+        - License: about/license.md
