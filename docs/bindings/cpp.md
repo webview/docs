@@ -1,21 +1,3 @@
-# Compiling
-
-### Linux  
-```
-c++ main.cc `pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.0` -o webview-example
-```
-
-### MacOS
-```
-c++ main.cc -std=c++11 -framework WebKit -o webview-example
-```
-
-### Windows (x64)
-The `webview.exe` file will be in the build directory.  
-```
-script/build.bat
-```
-
 # API
 
 ### webview::webview
@@ -41,6 +23,24 @@ void navigate(const std::string url)
 ### webview::run
 ```
 void run()
+```
+
+# Compiling
+
+### Linux  
+```
+c++ main.cc `pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.0` -o webview-example
+```
+
+### MacOS
+```
+c++ main.cc -std=c++11 -framework WebKit -o webview-example
+```
+
+### Windows (x64)
+The `webview.exe` file will be in the build directory.  
+```
+script/build.bat
 ```
 
 # Examples
