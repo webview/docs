@@ -21,7 +21,13 @@ nav:
         - Go: bindings/go.md
         - Rust: bindings/rust.md
         - Nim: bindings/nim.md
+        - Deno: bindings/deno.md
         - Java: bindings/java.md
+        - C Sharp: bindings/csharp.md
+        - Python: bindings/python.md
+        - Crystal: bindings/crystal.md
+        - Haskell: bindings/haskell.md
+        - Janet: bindings/janet.md
     - About:
         - Contributing: about/contributing.md
         - License: about/license.md
