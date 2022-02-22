@@ -44,6 +44,39 @@ must destroy the webview.
 void run()
 ```
 
+### webview::eval
+Evaluates arbitrary JavaScript code. Evaluation happens asynchronously, also  
+the result of the expression is ignored. Use RPC bindings if you want to  
+receive notifications about the results of the evaluation.  
+```
+ void eval(const std::string js)
+```
+
+### webview::bind
+Binds a native C callback so that it will appear under the given name as a  
+global JavaScript function. Internally it uses webview_init(). Callback  
+receives a request string and a user-provided argument pointer. Request  
+string is a JSON array of all the arguments passed to the JavaScript  
+function.
+```
+void bind(const std::string name, sync_binding_t fn)
+```
+
+### webview::unbind
+Removes a native C callback that was previously set by webview_bind
+```
+void unbind(const std::string name)
+```
+
+### webview::resolve
+Used to return a string value from the native binding. The seq number  
+must be provided to help internal RPC engine match requests with responses.  
+If status is zero - result is expected to be a valid JSON result value.  
+If status is not zero - result is an error JSON object.
+```
+void resolve(const std::string seq, int status, const std::string result)
+```
+
 # Compiling
 
 ### Linux  
