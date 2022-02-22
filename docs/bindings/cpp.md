@@ -1,26 +1,45 @@
 # API
 
 ### webview::webview
+Creates a new webview instance. If debug is non-zero - developer tools will  
+be enabled (if the platform supports them). Window parameter can be a  
+pointer to the native window handle. If it's non-null - then child WebView  
+is embedded into the given parent window. Otherwise a new window is created.  
+Depending on the platform, a GtkWindow, NSWindow or HWND pointer can be  
+passed here.
 ```
 webview(bool debug = false, void *wnd = nullptr)
 ```
 
 ### webview::set_title
+Updates the title of the native window. Must be called from the UI thread.
 ```
 void set_title(const std::string title)
 ```
 
 ### webview::set_size
+Accepts a `WEBVIEW_HINT`.  
+```
+#define WEBVIEW_HINT_NONE 0
+#define WEBVIEW_HINT_MIN 1
+#define WEBVIEW_HINT_MAX 2
+#define WEBVIEW_HINT_FIXED 3
+```
 ```
 void set_size(int width, int height, int hints)
 ```
 
 ### webview::navigate
+Navigates webview to the given URL. URL may be a data URI, i.e.  
+"data:text/text,<html>...</html>". It is often ok not to url-encode it  
+properly, webview will re-encode it for you.  
 ```
 void navigate(const std::string url)
 ```
 
 ### webview::run
+Runs the main loop until it's terminated. After this function exits - you  
+must destroy the webview.  
 ```
 void run()
 ```
