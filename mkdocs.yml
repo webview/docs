@@ -28,6 +28,7 @@ nav:
         - Crystal: bindings/crystal.md
         - Haskell: bindings/haskell.md
         - Janet: bindings/janet.md
+    - Alternatives: alternatives.md
     - About:
         - Contributing: about/contributing.md
         - License: about/license.md
