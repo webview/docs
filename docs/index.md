@@ -8,7 +8,7 @@ It supports two-way JavaScript bindings (to call JavaScript from the backend-lan
 
 It uses Cocoa/WebKit on macOS, gtk-webkit2 on Linux and Edge on Windows 10.
 
-## Dependancies
+## Dependencies
 
 *Windows*
 - Windows 10 SDK via Visual Studio Installer
