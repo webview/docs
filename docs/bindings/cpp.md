@@ -46,35 +46,75 @@ void run()
 
 ### webview::eval
 Evaluates arbitrary JavaScript code. Evaluation happens asynchronously, also  
-the result of the expression is ignored. Use RPC bindings if you want to  
+the result of the expression is ignored. Use the `bind` function if you want to  
 receive notifications about the results of the evaluation.  
 ```
- void eval(const std::string js)
+void eval(const std::string js)
+```
+
+### webview::init
+Injects JavaScript code at the initialization of the new page. Every time  
+the webview will open a the new page - this initialization code will be  
+executed. It is guaranteed that code is executed before window.onload.
+```
+void init(const std::string js)
 ```
 
 ### webview::bind
-Binds a native C callback so that it will appear under the given name as a  
-global JavaScript function. Internally it uses webview_init(). Callback  
-receives a request string and a user-provided argument pointer. Request  
-string is a JSON array of all the arguments passed to the JavaScript  
-function.
+Binds a native C++ callback so that it will appear under the given name as a  
+global JavaScript function. Internally it uses `init`. Callback receives
+a request string. Request string is a JSON array of all the arguments passed  
+to the JavaScript function.
 ```
 void bind(const std::string name, sync_binding_t fn)
 ```
-
-### webview::unbind
-Removes a native C callback that was previously set by webview_bind
+`sync_binding_t` is an alias for `std::function<std::string(std::string)>`  
+Thus, an example callback looks like:
+```cpp
+std::string myBoundCallback(string args) {
+  return "\"Return this string to the JS function 'myBoundCallback'\"";
+}
 ```
-void unbind(const std::string name)
+Now you can call this JavaScript function like so:
+```js
+myBoundCallback("arg1", 2, true).then(e => console.log(e));
 ```
 
 ### webview::resolve
-Used to return a string value from the native binding. The seq number  
-must be provided to help internal RPC engine match requests with responses.  
+Used to return a string value from the native binding. This function is  
+used internally when a return value is present in a bound callback as in  
+the example above. You can also use this function directly:  
+The seq number must be provided to match requests with responses.  
 If status is zero - result is expected to be a valid JSON result value.  
 If status is not zero - result is an error JSON object.
 ```
 void resolve(const std::string seq, int status, const std::string result)
+```
+
+### webview::unbind
+Removes a native C++ callback that was previously set by `bind`.
+```
+void unbind(const std::string name)
+```
+
+### webview::window
+Returns a pointer to the platform-specific window. You must cast from `void *`  
+to the proper type.
+```
+void *window()
+```
+
+### webview::terminate
+Closes the webview window.
+```
+void terminate()
+```
+
+### webview::dispatch
+Posts a function to be executed on the main thread. You normally do not need  
+to call this function, unless you want to tweak the native window.
+```
+void dispatch(std::function<void()> f)
 ```
 
 # Compiling
@@ -90,10 +130,10 @@ c++ main.cc -std=c++11 -framework WebKit -o webview-example
 ```
 
 ### Windows (x64)
-The `webview.exe` file will be in the build directory.  
 ```
 script/build.bat
 ```
+- The `webview.exe` file will be in the build directory.  
 
 # Examples
 Hello World:
