@@ -30,6 +30,6 @@ for more info
 
 - `pkg install webkit2-gtk3`
 
-*MacOs*
+*MacOS*
 
 - Just build it!
