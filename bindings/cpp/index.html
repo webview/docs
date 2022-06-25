@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="WebView Maintainers" /><link rel="canonical" href="https://webview.dev/bindings/cpp/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>C++ - Webview</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "C++";
+        var mkdocs_page_input_path = "bindings/cpp.md";
+        var mkdocs_page_url = "/bindings/cpp/";
+      </script>
+    
+    <script src="../../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/yaml.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/languages/django.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Webview
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Bindings</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">C++</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#webviewwebview">webview::webview</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewset_title">webview::set_title</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewset_size">webview::set_size</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewnavigate">webview::navigate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewrun">webview::run</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webvieweval">webview::eval</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewinit">webview::init</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewbind">webview::bind</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewresolve">webview::resolve</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewunbind">webview::unbind</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewwindow">webview::window</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewterminate">webview::terminate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#webviewdispatch">webview::dispatch</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../c/">C</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../go.md">Go</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../rust.md">Rust</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../nim.md">Nim</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../deno.md">Deno</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../java.md">Java</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../csharp.md">C Sharp</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../python.md">Python</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../crystal.md">Crystal</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../haskell.md">Haskell</a>
+                  </li>
+                  <li class="toctree-l1"><a class="" href="../janet.md">Janet</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../../alternatives/">Alternatives</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">About</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="" href="../../about/contributing.md">Contributing</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/license/">License</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Webview</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Bindings &raquo;</li><li>C++</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="api">API</h1>
+<h3 id="webviewwebview">webview::webview</h3>
+<p>Creates a new webview instance. If debug is non-zero - developer tools will<br />
+be enabled (if the platform supports them). Window parameter can be a<br />
+pointer to the native window handle. If it's non-null - then child WebView<br />
+is embedded into the given parent window. Otherwise a new window is created.<br />
+Depending on the platform, a GtkWindow, NSWindow or HWND pointer can be<br />
+passed here.</p>
+<pre><code>webview(bool debug = false, void *wnd = nullptr)
+</code></pre>
+<h3 id="webviewset_title">webview::set_title</h3>
+<p>Updates the title of the native window. Must be called from the UI thread.</p>
+<pre><code>void set_title(const std::string title)
+</code></pre>
+<h3 id="webviewset_size">webview::set_size</h3>
+<p>Accepts a <code>WEBVIEW_HINT</code>.  </p>
+<pre><code>#define WEBVIEW_HINT_NONE 0
+#define WEBVIEW_HINT_MIN 1
+#define WEBVIEW_HINT_MAX 2
+#define WEBVIEW_HINT_FIXED 3
+</code></pre>
+<pre><code>void set_size(int width, int height, int hints)
+</code></pre>
+<h3 id="webviewnavigate">webview::navigate</h3>
+<p>Navigates webview to the given URL. URL may be a data URI, i.e.<br />
+"data:text/text,<html>...</html>". It is often ok not to url-encode it<br />
+properly, webview will re-encode it for you.  </p>
+<pre><code>void navigate(const std::string url)
+</code></pre>
+<h3 id="webviewrun">webview::run</h3>
+<p>Runs the main loop until it's terminated. After this function exits - you<br />
+must destroy the webview.  </p>
+<pre><code>void run()
+</code></pre>
+<h3 id="webvieweval">webview::eval</h3>
+<p>Evaluates arbitrary JavaScript code. Evaluation happens asynchronously, also<br />
+the result of the expression is ignored. Use the <code>bind</code> function if you want to<br />
+receive notifications about the results of the evaluation.  </p>
+<pre><code>void eval(const std::string js)
+</code></pre>
+<h3 id="webviewinit">webview::init</h3>
+<p>Injects JavaScript code at the initialization of the new page. Every time<br />
+the webview will open a the new page - this initialization code will be<br />
+executed. It is guaranteed that code is executed before window.onload.</p>
+<pre><code>void init(const std::string js)
+</code></pre>
+<h3 id="webviewbind">webview::bind</h3>
+<p>Binds a native C++ callback so that it will appear under the given name as a<br />
+global JavaScript function. Internally it uses <code>init</code>. Callback receives
+a request string. Request string is a JSON array of all the arguments passed<br />
+to the JavaScript function.</p>
+<pre><code>void bind(const std::string name, sync_binding_t fn)
+</code></pre>
+<p><code>sync_binding_t</code> is an alias for <code>std::function&lt;std::string(std::string)&gt;</code><br />
+Thus, an example callback looks like:</p>
+<pre><code class="language-cpp">std::string myBoundCallback(string args) {
+  return &quot;\&quot;Return this string to the JS function 'myBoundCallback'\&quot;&quot;;
+}
+</code></pre>
+<p>Now you can call this JavaScript function like so:</p>
+<pre><code class="language-js">myBoundCallback(&quot;arg1&quot;, 2, true).then(e =&gt; console.log(e));
+</code></pre>
+<h3 id="webviewresolve">webview::resolve</h3>
+<p>Used to return a string value from the native binding. This function is<br />
+used internally when a return value is present in a bound callback as in<br />
+the example above. You can also use this function directly:<br />
+The seq number must be provided to match requests with responses.<br />
+If status is zero - result is expected to be a valid JSON result value.<br />
+If status is not zero - result is an error JSON object.</p>
+<pre><code>void resolve(const std::string seq, int status, const std::string result)
+</code></pre>
+<h3 id="webviewunbind">webview::unbind</h3>
+<p>Removes a native C++ callback that was previously set by <code>bind</code>.</p>
+<pre><code>void unbind(const std::string name)
+</code></pre>
+<h3 id="webviewwindow">webview::window</h3>
+<p>Returns a pointer to the platform-specific window. You must cast from <code>void *</code><br />
+to the proper type.</p>
+<pre><code>void *window()
+</code></pre>
+<h3 id="webviewterminate">webview::terminate</h3>
+<p>Closes the webview window.</p>
+<pre><code>void terminate()
+</code></pre>
+<h3 id="webviewdispatch">webview::dispatch</h3>
+<p>Posts a function to be executed on the main thread. You normally do not need<br />
+to call this function, unless you want to tweak the native window.</p>
+<pre><code>void dispatch(std::function&lt;void()&gt; f)
+</code></pre>
+<h1 id="compiling">Compiling</h1>
+<h3 id="linux">Linux</h3>
+<pre><code>c++ main.cc `pkg-config --cflags --libs gtk+-3.0 webkit2gtk-4.0` -o webview-example
+</code></pre>
+<h3 id="macos">MacOS</h3>
+<pre><code>c++ main.cc -std=c++11 -framework WebKit -o webview-example
+</code></pre>
+<h3 id="windows-x64">Windows (x64)</h3>
+<pre><code>script/build.bat
+</code></pre>
+<ul>
+<li>The <code>webview.exe</code> file will be in the build directory.  </li>
+</ul>
+<h1 id="examples">Examples</h1>
+<p>Hello World:</p>
+<pre><code>#include &quot;webview.h&quot;
+int main() {
+  webview::webview w(true, nullptr);
+  w.set_title(&quot;Minimal example&quot;);
+  w.set_size(480, 320, WEBVIEW_HINT_NONE);
+  w.navigate(&quot;https://en.m.wikipedia.org/wiki/Main_Page&quot;);
+  w.run();
+  return 0;
+}
+</code></pre>
+<p>Complex Example:</p>
+<pre><code>#include &quot;webview.h&quot;
+#include &lt;iostream&gt;
+
+int main() {
+  webview::webview w(true, nullptr);
+  w.set_title(&quot;Example&quot;);
+  w.set_size(480, 320, WEBVIEW_HINT_NONE);
+  w.set_size(180, 120, WEBVIEW_HINT_MIN);
+  w.bind(&quot;noop&quot;, [](std::string s) -&gt; std::string {
+    std::cout &lt;&lt; s &lt;&lt; std::endl;
+    return s;
+  });
+  w.bind(&quot;add&quot;, [](std::string s) -&gt; std::string {
+    auto a = std::stoi(webview::json_parse(s, &quot;&quot;, 0));
+    auto b = std::stoi(webview::json_parse(s, &quot;&quot;, 1));
+    return std::to_string(a + b);
+  });
+  w.navigate(R&quot;V0G0N(data:text/html,
+    &lt;!doctype html&gt;
+    &lt;html&gt;
+      &lt;body&gt;hello&lt;/body&gt;
+      &lt;script&gt;
+        window.onload = function() {
+          document.body.innerText = `hello, ${navigator.userAgent}`;
+          noop('hello').then(function(res) {
+            console.log('noop res', res);
+          });
+          add(1, 2).then(function(res) {
+            console.log('add res', res);
+          });
+        };
+      &lt;/script&gt;
+    &lt;/html&gt;
+  )V0G0N&quot;);
+  w.run();
+  return 0;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../c/" class="btn btn-neutral float-right" title="C">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/webview/docs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+      <span><a href="../c/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
