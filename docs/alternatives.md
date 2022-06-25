@@ -14,7 +14,7 @@ Chances are, HTML/CSS/JS is *not* the right choice for your app, especially
 if it's a tool (designed to do one thing). Using HTML/CSS/JS as your frontend  
 can be justified when your frontend is bigger than your backend.
 
-- [GTK](https://petabyt.dev/blog/tiny-windows-linux-gtk-apps)
+- [GTK](https://danielc.dev/blog/tiny-windows-linux-gtk-apps)
 - [LCUI](https://github.com/lc-soft/LCUI)
 - Qt
 - ncurses
